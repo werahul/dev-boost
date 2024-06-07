@@ -1,33 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@font-face {
+  font-family: "flyHead";
+  src: url("/fonts/Flyhead/FlyheadRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.max-container {
+  @apply mx-auto max-w-[1440px];
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.navbarBody {
+  border: 1px solid;
+  border-image-source: linear-gradient(
+    233.47deg,
+    rgba(27, 27, 92, 0) 59.64%,
+    #1fffa3 95.81%
+  );
+}
+
+.marquee {
+  display: flex;
+  margin: 0 auto;
+  width: 1180px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marqueeGroup {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+  justify-content: start;
+  animation: scrollX 50s linear infinite;
+}
+
+.imaGe {
+  object-fit: contain;
+  width: 80%;
+  margin: 0 20px;
+  height: auto;
+  border-radius: 0.5rem;
+  aspect-ratio: 1/1;
+}
+.imageGroup1{
+  margin-right: 50px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 20px 110px;
+  }
+
+  .marquee {
+    width: 90%;
+    margin-right: 5%;
+  }
+
+  .marqueeGroup {
+    flex-shrink: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    width: 1%;
+    justify-content: start;
+    animation: scrollX 15s linear infinite;
+  }
+
+  .imaGe {
+    width: 200%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+@keyframes scrollX {
+  from {
+    left: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.csBg {
+  background-image: url("/Images/csBg.png");
+  /* background-size: 1440px 1440px; Set the background image size to 600px by 600px */
+  background-size: contain;
+  background-position: center center; /* Center the background image within the div */
+  background-repeat: no-repeat; /* Ensure the background image does not repeat */
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icons img {
+  width: 50px;
+  height: 50px;
+}
+
+.boxShadowButton {
+  box-shadow: rgba(142, 235, 22, 0.1) 0px 1px 0px;
+}
+
+.gradient-border {
+  background-color: #eeeeee;
+  height: 503px;
+  padding: 80px 10px 0px 40px;
+  position: relative;
+  border-radius: 20px; /* Ensure the border-radius is applied here */
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: -3px; /* Match the border-width */
+  left: -3px; /* Match the border-width */
+  right: -3px; /* Match the border-width */
+  bottom: -3px; /* Match the border-width */
+  border-radius: 23px; /* Adjust for border width (20px + 3px) */
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to right,
+    #8f2758cc,
+    #ffffff 30%,
+    #ffffff 70%,
+    #8f2758cc
+  );
+  z-index: -1;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.wordSpace{
+  word-spacing: 20px;
+}
+
+@keyframes expandWidth {
+  0% {
+    max-width: 0;
+    opacity: 0;
+  }
+  100% {
+    max-width: 100%;
+    opacity: 1;
   }
 }
+
+@keyframes shrinkWidth {
+  0% {
+    max-width: 100%;
+    opacity: 1;
+  }
+  100% {
+    max-width: 0;
+    opacity: 0;
+  }
+}
+
+.animatedText {
+  display: inline-flex;
+  align-items: center; /* Ensure vertical alignment */
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0; /* initial max-width is zero */
+  opacity: 0; /* initial opacity is zero */
+  transition: max-width 1s ease, opacity 1s ease;
+}
+
+.expand {
+  animation: expandWidth 1s forwards;
+}
+
+.shrink {
+  animation: shrinkWidth 1s forwards;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar::before,
+.navbar::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+}
+
+.navbar::before {
+  bottom: 0;
+  left: 0;
+  height: 4px; /* Adjust the height of the bottom border */
+  width: 100%;
+  background: linear-gradient(to right, transparent, #1FFFA3);
+}
+
+.navbar::after {
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 4px; /* Adjust the width of the right border */
+  background: linear-gradient(to bottom, transparent, #1FFFA3);
+}
+
+.grColor{
+  background: #000049
+
+}
+
+
+
+
