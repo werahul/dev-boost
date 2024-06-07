@@ -2,7 +2,7 @@ import React from "react";
 
 const DevBoostIntegration = () => {
   return (
-    <div className="bg-[#000049] px-20 py-24 h-[565px] mt-[156px]">
+    <div className="wtColor px-20 py-24 h-[565px] mt-[156px]">
       <div className=" relative  max-container">
         <h1 className="font-inter font-normal text-[48px] leading-[58px] text-center text-white">
           DevBoost <span className="font-semibold">Seamlessly Integrates</span> <br /> With Your Existing Tools
