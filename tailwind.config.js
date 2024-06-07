@@ -13,6 +13,10 @@ module.exports = {
       'inter': ['Inter', 'sans-serif'],
       flyHead: ['flyHead', 'sans-serif'],
     },
+    screens: {
+      'lg': '1024px',
+      '2xl': '1700px',
+      },
     extend: {},
   },
   plugins: [],
