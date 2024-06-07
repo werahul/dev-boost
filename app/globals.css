@@ -211,8 +211,10 @@
 }
 
 .grColor{
-  background: #000049
-
+  background: radial-gradient(#8f27589a, transparent);
+  background-size: 90% 120%; /* Adjust the size of the radial gradient */
+  background-repeat: no-repeat;
+  
 }
 
 

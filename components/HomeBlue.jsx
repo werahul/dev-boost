@@ -84,8 +84,8 @@ const HomeBlue = () => {
         </div>
       </div>
       <div className="flex items-center justify-center -mt-[140px]">
-        <img src="/Images/Home1.png" alt="" className="w-[461px]" />
-        <img src="/Images/Home2.png" alt="" className="w-[518px]" />
+        <img src="/Images/Home1.png" alt="" className="w-[517px]" />
+        <img src="/Images/Home2.png" alt="" className="w-[517px]" />
       </div>
       <div className=" mt-[150px] mb-2">
         <p className="font-inter font-bold text-[24px] leading-[36px] text-center text-[#000049] ">
@@ -103,14 +103,15 @@ const HomeBlue = () => {
         <div className="max-container">
           <div className="mt-[80px] px-20">
           <div className="">
-            <div className="h-[576px] grColor rounded-[20px] px-10 py-14 flex items-start space-x-10">
+            <div className="h-[576px] bg-[#000049] rounded-[20px] px-10 py-14 flex items-start space-x-10 relative">
               <div className="w-[50%] ">
                 {activeTab === "problems" && (
-                  <img src="/Images/banner1.png" alt="Problems" />
+                  <img src="/Images/banner1.png" alt="Problems" className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50" />
                 )}
                 {activeTab === "solutions" && (
-                  <img src="/Images/banner2.png" alt="Solutions" />
+                  <img src="/Images/banner2.png" alt="Solutions" className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"/>
                 )}
+                <div className="absolute grColor top-28 backdrop-blur-[10px] w-[500px] h-[350px] rounded-full z-10"></div>
               </div>
               <div className="w-[50%]">
                 <div className="w-full h-[78px] rounded-[8px] flex items-center bg-white bg-opacity-10 px-3 mb-8">
