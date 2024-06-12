@@ -229,3 +229,68 @@
 /* .glowEffect:hover {
   box-shadow: 0 0 15px 5px rgba(0, 255, 186, 0.9);
 } */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.team-member {
+  position: relative;
+  width: 294px;
+  height: 352px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-image {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.team-member:hover .team-image {
+  filter: grayscale(0%);
+}
+
+.info-box {
+  display: none;
+  transition: display 0.3s ease;
+}
+
+.team-member:hover .info-box {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 20px;
+  width: 254px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Add cursor grabbing effect for drag functionality */
+.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* Styles for the dragging state */
+.flex {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  width: 100%;
+}
+
