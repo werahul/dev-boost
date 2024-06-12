@@ -55,7 +55,7 @@ const AboutBlue = () => {
 
   return (
     <div className="">
-      <div className="wtColor w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="aboutBg w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="tracking-wide font-flyHead text-[64px] leading-[74px] text-[#ffffff] text-center">
           TAKING ENGINEERING INTELLIGENCE <br />
           TO THE NEXT LEVEL

@@ -15,6 +15,12 @@
   @apply mx-auto max-w-[1440px];
 }
 
+.aboutBg{
+  background-image: url("/Images/mainBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
 .navbarBody {
   border: 1px solid;
   border-image-source: linear-gradient(

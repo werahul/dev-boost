@@ -51,7 +51,7 @@ const HomeBlue = () => {
 
   return (
     <div className="">
-      <div className="wtColor w-full h-[859px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="aboutBg w-full h-[859px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="font-bold tracking-wide wordSpace font-flyHead text-[64px] leading-[94px] text-[#ffffff] text-center">
           BOOST{" "}
           <span
