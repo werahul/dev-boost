@@ -15,11 +15,16 @@
   @apply mx-auto max-w-[1440px];
 }
 
-.aboutBg{
+.aboutBg {
   background-image: url("/Images/mainBg.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+}
+
+.mapBg {
+  background-image: url("/Images/mapBg.png");
+  background-size: cover;
 }
 .navbarBody {
   border: 1px solid;
@@ -243,8 +248,8 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .team-member {
@@ -299,4 +304,3 @@
   overflow: hidden;
   width: 100%;
 }
-
