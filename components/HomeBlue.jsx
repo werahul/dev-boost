@@ -18,20 +18,19 @@ const images = [
 
 const HomeBlue = () => {
   const [activeTab, setActiveTab] = useState("problems");
-  const [efficiencyText, setEfficiencyText] = useState("Efficiency");
-  const [percentageText, setPercentageText] = useState("90%");
+  const [efficiencyText, setEfficiencyText] = useState("Process");
+  const [percentageText, setPercentageText] = useState("80%");
   const [animationClass, setAnimationClass] = useState("expand");
 
   const efficiencyTexts = [
-    "Efficiency",
     "Speed",
     "Delivery",
     "Sprint",
     "Cost-Effectiveness",
     "Quality",
-    "Cost-Reduction",
+    "Process",
   ];
-  const percentageTexts = ["90%", "100%", "100%", "60%", "40%", "25%", "37.5%"];
+  const percentageTexts = ["8X", "99%", "50%", "60%", "50%", "80%"];
   let index = 0;
 
   useEffect(() => {
@@ -71,11 +70,9 @@ const HomeBlue = () => {
         </p>
         <p className="font-inter font-normal text-[18px] leading-[23.4px] text-[#ffffff] text-center mt-5">
           DevBoost is an all-in-one engineering intelligence tool that provides
-          precise <br />
-          predictive analysis, forecasts, personalized recommendations and
-          actionable insights to <br />
-          mitigate risks and boost productivity across verticals in a tech
-          organization.
+          precise predictive <br /> analysis, forecasts, personalized recommendations
+          and actionable insights to mitigate risks <br /> and boost productivity
+          across tech verticals.
         </p>
         <div className="flex justify-center items-center">
           <button className="bg-[#1FFFA3] hover:bg-transparent border boder-[#1FFFA3] rounded-[8px] w-[243px] h-[56px] font-bold text-[20px] text-[#000049] hover:text-[#1FFFA3] mt-10 ">
@@ -102,115 +99,124 @@ const HomeBlue = () => {
       <div className="csBg">
         <div className="max-container">
           <div className="mt-[80px] px-20">
-          <div className="">
-            <div className="h-[576px] bg-[#000049] rounded-[20px] px-10 py-14 flex items-start space-x-10 relative">
-              <div className="w-[50%] ">
-                {activeTab === "problems" && (
-                  <img src="/Images/banner1.png" alt="Problems" className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50" />
-                )}
-                {activeTab === "solutions" && (
-                  <img src="/Images/banner2.png" alt="Solutions" className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"/>
-                )}
-                <div className="absolute grColor top-28 backdrop-blur-[10px] w-[500px] h-[350px] rounded-full z-10"></div>
-              </div>
-              <div className="w-[50%]">
-                <div className="w-full h-[78px] rounded-[8px] flex items-center bg-white bg-opacity-10 px-3 mb-8">
-                  <button
-                    className={`w-[50%] h-[50px] rounded-[8px] ${
-                      activeTab === "problems"
-                        ? "bg-white font-semibold text-[#000049]"
-                        : "bg-transparent font-normal text-white"
-                    } font-inter text-[16px]`}
-                    onClick={() => setActiveTab("problems")}
-                  >
-                    Problems
-                  </button>
-                  <button
-                    className={`w-[50%] h-[50px] rounded-[8px] ${
-                      activeTab === "solutions"
-                        ? "bg-white font-semibold text-[#000049]"
-                        : "bg-transparent font-normal text-white"
-                    } font-inter text-[16px]`}
-                    onClick={() => setActiveTab("solutions")}
-                  >
-                    Solutions
-                  </button>
-                </div>
-                <div className="space-y-5">
+            <div className="">
+              <div className="h-[576px] bg-[#000049] rounded-[20px] px-10 py-14 flex items-start space-x-10 relative">
+                <div className="w-[50%] ">
                   {activeTab === "problems" && (
-                    <>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Decrease In Project Visibility
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Lack of clarity for the engineering leader concerning
-                          the ground-level performance resulting in
-                          unsustainable prioritization and broken developer
-                          workflow.
-                        </p>
-                      </div>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Impact On Project Execution
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Dependency issues arise in bigger teams as the entire
-                          team gets disrupted even if a single person is
-                          disturbed.
-                        </p>
-                      </div>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Diminishing Productivity
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Resource burnout stems from situations ranging from
-                          overwhelming ad hoc requests to dysfunctional work
-                          conditions. Engineering leaders are not well-informed
-                          about the workload and issues faced by developers.
-                        </p>
-                      </div>
-                    </>
+                    <img
+                      src="/Images/banner1.png"
+                      alt="Problems"
+                      className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"
+                    />
                   )}
                   {activeTab === "solutions" && (
-                    <>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Project Execution Transparency
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Identify data patterns, consolidate program
-                          information from multiple software sources and provide
-                          360° actionable insights.
-                        </p>
-                      </div>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Forecasting Project Outcomes
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Correlate numerous aspects of agile development
-                          metrics from multiple disparate tools and forecast any
-                          potential issue that can impact the product.
-                        </p>
-                      </div>
-                      <div className="">
-                        <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
-                          Performance Visibility
-                        </li>
-                        <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
-                          Get better visibility between the engineering leaders
-                          and the development team. Tracks KPIs to measure
-                          engineering performance as well as any developer
-                          issues.
-                        </p>
-                      </div>
-                    </>
+                    <img
+                      src="/Images/banner2.png"
+                      alt="Solutions"
+                      className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"
+                    />
                   )}
+                  <div className="absolute grColor top-28 backdrop-blur-[10px] w-[500px] h-[350px] rounded-full z-10"></div>
+                </div>
+                <div className="w-[50%]">
+                  <div className="w-full h-[78px] rounded-[8px] flex items-center bg-white bg-opacity-10 px-3 mb-8">
+                    <button
+                      className={`w-[50%] h-[50px] rounded-[8px] ${
+                        activeTab === "problems"
+                          ? "bg-white font-semibold text-[#000049]"
+                          : "bg-transparent font-normal text-white"
+                      } font-inter text-[16px]`}
+                      onClick={() => setActiveTab("problems")}
+                    >
+                      Problems
+                    </button>
+                    <button
+                      className={`w-[50%] h-[50px] rounded-[8px] ${
+                        activeTab === "solutions"
+                          ? "bg-white font-semibold text-[#000049]"
+                          : "bg-transparent font-normal text-white"
+                      } font-inter text-[16px]`}
+                      onClick={() => setActiveTab("solutions")}
+                    >
+                      Solutions
+                    </button>
+                  </div>
+                  <div className="space-y-5">
+                    {activeTab === "problems" && (
+                      <>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Decrease In Project Visibility
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Lack of clarity for the engineering leader
+                            concerning the ground-level performance resulting in
+                            unsustainable prioritization and broken developer
+                            workflow.
+                          </p>
+                        </div>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Impact On Project Execution
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Dependency issues arise in bigger teams as the
+                            entire team gets disrupted even if a single person
+                            is disturbed.
+                          </p>
+                        </div>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Diminishing Productivity
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Resource burnout stems from situations ranging from
+                            overwhelming ad hoc requests to dysfunctional work
+                            conditions. Engineering leaders are not
+                            well-informed about the workload and issues faced by
+                            developers.
+                          </p>
+                        </div>
+                      </>
+                    )}
+                    {activeTab === "solutions" && (
+                      <>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Project Execution Transparency
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Identify data patterns, consolidate program
+                            information from multiple software sources and
+                            provide 360° actionable insights.
+                          </p>
+                        </div>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Forecasting Project Outcomes
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Correlate numerous aspects of agile development
+                            metrics from multiple disparate tools and forecast
+                            any potential issue that can impact the product.
+                          </p>
+                        </div>
+                        <div className="">
+                          <li className="font-inter font-semibold text-[20px] leading-[30px] list-disc text-white">
+                            Performance Visibility
+                          </li>
+                          <p className="font-inter font-normal text-[16px] leading-[24px] text-white ml-7 mt-2">
+                            Get better visibility between the engineering
+                            leaders and the development team. Tracks KPIs to
+                            measure engineering performance as well as any
+                            developer issues.
+                          </p>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
           <div className=" pt-[156px] px-20">

@@ -26,32 +26,32 @@ const AboutBlue = () => {
   const [percentageText, setPercentageText] = useState("90%");
   const [animationClass, setAnimationClass] = useState("expand");
 
-  const efficiencyTexts = [
-    "Efficiency",
-    "Speed",
-    "Delivery",
-    "Sprint",
-    "Cost-Effectiveness",
-    "Quality",
-    "Cost-Reduction",
-  ];
-  const percentageTexts = ["90%", "100%", "100%", "60%", "40%", "25%", "37.5%"];
-  let index = 0;
+  // const efficiencyTexts = [
+  //   "Efficiency",
+  //   "Speed",
+  //   "Delivery",
+  //   "Sprint",
+  //   "Cost-Effectiveness",
+  //   "Quality",
+  //   "Cost-Reduction",
+  // ];
+  // const percentageTexts = ["90%", "100%", "100%", "60%", "40%", "25%", "37.5%"];
+  // let index = 0;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimationClass("shrink");
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setAnimationClass("shrink");
 
-      setTimeout(() => {
-        index = (index + 1) % efficiencyTexts.length;
-        setEfficiencyText(efficiencyTexts[index]);
-        setPercentageText(percentageTexts[index]);
-        setAnimationClass("expand");
-      }, 1000); // Duration of the shrink animation
-    }, 4000); // Total duration for one cycle (shrink + pause + expand + pause)
+  //     setTimeout(() => {
+  //       index = (index + 1) % efficiencyTexts.length;
+  //       setEfficiencyText(efficiencyTexts[index]);
+  //       setPercentageText(percentageTexts[index]);
+  //       setAnimationClass("expand");
+  //     }, 1000); 
+  //   }, 4000); 
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="">

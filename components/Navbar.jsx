@@ -35,7 +35,7 @@ const Navbar = () => {
         <nav
           className={`mx-auto max-w-[1200px]  z-50  p-4 flex items-center lg:h-[140px] rounded-[20px]  ${
             isScrolled
-              ? "lg:h-[96px] bg-[#19196F] w-[850px] space-x-10"
+              ? "lg:h-[96px] bg-[#19196F] w-[900px] space-x-10"
               : "lg:h-[140px] bg-[#ffffff36] w-full space-x-16 border-b border-[#1FFFA3]"
           } transition-all duration-300`}
         >
@@ -68,6 +68,7 @@ const Navbar = () => {
               isOpen ? "block" : "hidden"
             } lg:block bg-[#0e0131] lg:bg-transparent `}
           >
+          {isScrolled ? (<p className="text-white font-inter">Home</p>) : "" }
             <li className="text-white p-4 lg:p-0 text-center flex items-center space-x-2">
               <p>Product</p>
               <svg

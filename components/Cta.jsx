@@ -11,11 +11,10 @@ const Cta = () => {
             INNOVATION?
           </p>
           <p className="font-inter font-normal text-[18px] leading-[27px] mt-5 text-[#000049]">
-            Over 100 engineering teams are boosting their revenue with DevBoost!
-            You too can join this growth journey.
+          Multiple teams across Asia are boosting their revenue with DevBoost! You too can join this growth journey.
           </p>
 
-          <div className=" flex space-x-4 mt-7">
+          <div className="flex space-x-3 mt-7">
             <div>
               <Link href="/">
                 <p className="border border-[#00ffba] hover:border-[#000049]  rounded w-[197px] h-[45px] flex items-center justify-center transition-colors bg-[#00ffba] text-[#000049] hover:bg-transparent font-bold font-inter boxShadowButton">

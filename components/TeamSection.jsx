@@ -84,7 +84,7 @@ const TeamSection = () => {
 
   return (
     <div className="overflow-hidden relative w-full pl-20 max-container">
-      <div className="flex space-x-4 overflow-x-scroll no-scrollbar mt-10" ref={scrollRef}>
+      <div className="flex flexDiv space-x-4 overflow-x-scroll no-scrollbar mt-10" ref={scrollRef}>
         {teamMembers.map((member, index) => (
           <div
             key={index}

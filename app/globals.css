@@ -289,7 +289,7 @@
 }
 
 /* Styles for the dragging state */
-.flex {
+.flexDiv {
   display: flex;
   flex-direction: row;
   gap: 20px;
