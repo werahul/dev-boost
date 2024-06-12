@@ -35,7 +35,7 @@ const AboutSwitch = () => {
               <p className="font-inter font-normal text-[16px] leading-[24px] text-[#ffffff]">
                 Our mission is to harness the power of data analytics to
                 streamline business operations and processes across various
-                industry verticals. By improving developers' efficiency and
+                industry verticals. By improving developers&apos; efficiency and
                 productivity, we enable tech companies to meet and exceed their
                 performance goals. Our engineering intelligence SaaS tool
                 provides actionable insights, optimizing workflows and fostering
