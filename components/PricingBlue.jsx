@@ -2,12 +2,6 @@
 import React, { useState } from "react";
 
 const PricingBlue = () => {
-  // const [activePlan, setActivePlan] = useState("monthly");
-
-  // const handlePlanChange = (plan) => {
-  //   setActivePlan(plan);
-  // };
-
   return (
     <div>
       <div className="pricingBg w-full h-[1100px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
@@ -21,7 +15,9 @@ const PricingBlue = () => {
         </p>
 
         <div className="max-container">
-          {/*<div className="mt-[58px] flex justify-center items-center">
+          {/* Uncomment and use these lines if you want to toggle between monthly and yearly plans */}
+          {/* 
+          <div className="mt-[58px] flex justify-center items-center">
             <div className="w-[461px] h-[93px] bg-white bg-opacity-15 rounded-lg p-3">
               <button
                 className={`w-[50%] h-full rounded-lg font-inter text-[24px] ${
@@ -44,7 +40,8 @@ const PricingBlue = () => {
                 Yearly
               </button>
             </div>
-          </div>*/}
+          </div>
+          */}
 
           <div className="monthlyContent grid grid-cols-3 gap-x-9 mt-[62px]">
             <div className="w-full rounded-lg h-[468px] py-10 px-5 bg-white bg-opacity-15 flex flex-col justify-center items-center">
