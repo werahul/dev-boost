@@ -21,6 +21,11 @@
   background-size: cover;
   width: 100%;
 }
+.pricingBg {
+  background-image: url("/Images/pricingBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .mapBg {
   background-image: url("/Images/mapBg.png");
@@ -124,12 +129,18 @@
   box-shadow: rgba(142, 235, 22, 0.1) 0px 1px 0px;
 }
 
-.gradient-border {
-  background-color: #eeeeee;
-  height: 503px;
-  padding: 80px 10px 0px 40px;
+.outer-wrapper {
   position: relative;
   border-radius: 20px; /* Ensure the border-radius is applied here */
+}
+
+.gradient-border {
+  position: relative;
+  background-color: #eeeeee; /* Gray background color */
+  border-radius: 20px; /* Ensure the border-radius is applied here */
+  padding: 80px 10px 0px 40px;
+  height: 503px;
+  z-index: 1; /* Set z-index higher than the pseudo-element */
 }
 
 .gradient-border::before {
@@ -147,8 +158,9 @@
     #ffffff 70%,
     #8f2758cc
   );
-  z-index: -1;
+  z-index: -1; /* Set z-index lower than the parent element */
 }
+
 
 .wordSpace {
   word-spacing: 20px;
