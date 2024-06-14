@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 
 const PricingBlue = () => {
-  const [activePlan, setActivePlan] = useState("monthly");
+  // const [activePlan, setActivePlan] = useState("monthly");
 
-  const handlePlanChange = (plan) => {
-    setActivePlan(plan);
-  };
+  // const handlePlanChange = (plan) => {
+  //   setActivePlan(plan);
+  // };
 
   return (
     <div>
