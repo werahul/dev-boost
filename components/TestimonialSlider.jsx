@@ -34,7 +34,7 @@ const TestimonialSlider = () => {
   }, [isHovered]);
 
   return (
-    <div className="py-[156px] px-20">
+    <div className="py-[156px] px-20 max-container">
       <div
         className="w-full h-[437px] mx-auto p-6 border border-[#000049] rounded-lg bg-white shadow-md flex items-center justify-between px-14 py-8"
         onMouseEnter={() => setIsHovered(true)}

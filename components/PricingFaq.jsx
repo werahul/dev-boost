@@ -36,6 +36,11 @@ const PricingFaq = () => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  const handleIconClick = (event, index) => {
+    event.stopPropagation();
+    toggleAccordion(index);
+  };
+
   return (
     <div className="py-[156px] px-20 max-container">
       <p className="text-center font-inter font-semibold text-[48px] text-[#000049]">
@@ -63,9 +68,9 @@ const PricingFaq = () => {
                   </p>
                 )}
               </div>
-              <div className="">
+              <div>
                 <div
-                  onClick={() => toggleAccordion(index)}
+                  onClick={(event) => handleIconClick(event, index)}
                   className={`w-[50px] h-[50px] rounded-full border border-[#000049] flex items-center justify-center cursor-pointer ${
                     isOpen ? "bg-[#000049]" : ""
                   }`}

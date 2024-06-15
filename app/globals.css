@@ -316,3 +316,10 @@
   overflow: hidden;
   width: 100%;
 }
+
+.group:hover .svg-path {
+  fill: #00ffba;
+}
+.group2:hover .svg-path2 {
+  fill: #00ffba;
+}
