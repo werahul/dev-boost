@@ -3,29 +3,24 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "How does DevBoost count the licenses?",
+    question: "Do I need a credit card to start a free trial?",
     answer:
-      "DevBoost counts licenses based on the engineers who actively contribute code to the Git repository. These are the individuals who are directly involved in the development process. Other team members such as product managers, QA professionals, and engineering leads can still access the product but will not be included in the license count.",
+      "No, you don’t need a credit card to start your free trial. When you’re installing DevBoost you might see an Order Summary page asking for your payment information. If this happens, you can click on the Complete order and begin installation button without entering any payment information.",
   },
   {
-    question: "What is the pricing model for DevBoost?",
+    question: "What are the differences between the Basic and Premium plans?",
     answer:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "The Basic plan is a limited version of DevBoost that helps improve the pull request flow in teams. The Premium plan, on the other hand, offers a more holistic view into the effectiveness of the whole engineering organization, including insights on business outcomes, developer productivity, and developer experience.",
   },
   {
-    question: "Can I upgrade or downgrade my plan?",
+    question: "What’s included in the Freemium plan?",
     answer:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "The Freemium plan contains limited but useful features and functionalities and is available for companies with less than 10 software developers.",
   },
   {
-    question: "How does DevBoost count the licenses?",
+    question: "Can I pay yearly?",
     answer:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-  },
-  {
-    question: "What is the pricing model for DevBoost?",
-    answer:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "Contact your account manager or email us at Info@itechgenicglobal.com for more information on payment options.",
   },
 ];
 

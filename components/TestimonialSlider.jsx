@@ -3,19 +3,19 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    text: "This was the first time I had seen a solution that encompassed all pieces of information and mapping it to existing industry KPIs. That is great, but also having the ability to predict and forecast as well as plot against an existing trendline.",
-    author: "Girish Premachandran",
-    position: "Chief Technology Officer, Zuzu Hospitality",
+    text: "Within just 6 months of using DevBoost, we were able to improve quality from 70% to 95%, reduce the spillover rate to almost 0%, and increase the efficiency by needing only 5 resources instead of 8 resources.",
+    author: "Swapnil Tawar",
+    position: "CEO, Infeon Technology",
   },
   {
-    text: "We signed up for DevBoost and instantly started seeing substantial results. We were able to improve the team's productivity to a great extent. At the end of the 3-month pilot, we ended up saving about 40% on effort and delivery costs.",
-    author: "Vijay Talreja",
-    position: "Chief Technology Officer, Enrich Beauty Salons",
+    text: "DevBoost enabled us to improve delivery quality and timeline by 100%, reduce sprint spillover from 60% to almost 0%, and also helped me identify the underutilized resources which can now be used in other projects in case of delay.",
+    author: "Vikas More",
+    position: "Engineering Lead, Keva Consultancy",
   },
   {
-    text: "What sets DevBoost apart is its forecasting algorithm. The tool easily integrates with all other tools being used by various teams and then utilizes multiple algorithms to accommodate almost every possible scenario.",
-    author: "Ajay Soni",
-    position: "Senior VP, Head of Cloud & Data Services, Writer Information",
+    text: "Over the last 2 months, it has almost helped me save 2 extra resource cost by pinpointing the cause of feature delay, whilst also ensuring that I can get the feature release before the due date.",
+    author: "Naren Singh",
+    position: "CTO, Fracto",
   },
   // Add more testimonials here if needed
 ];
@@ -35,14 +35,18 @@ const TestimonialSlider = () => {
 
   return (
     <div className="py-[156px] px-20 max-container">
+      <div className="text-center font-inter font-normal text-[48px] text-[#000049] mb-10">
+        See Why <span className="font-semibold"> Engineering Leaders</span> Love
+        DevBoost
+      </div>
       <div
-        className="w-full h-[437px] mx-auto p-6 border border-[#000049] rounded-lg bg-white shadow-md flex items-center justify-between px-14 py-8"
+        className="w-full h-[363px] mx-auto py-[48px] border border-[#000049] rounded-lg bg-white shadow-md flex flex-col items-center justify-between px-14"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="text-left w-[60%]">
+        <div className="flex flex-col items-center  w-[100%]">
           <img src="/Images/quotes.png" alt="" />
-          <p className="font-inter font-normal text-[17px] leading-[26px] mb-4 text-[#000049] mt-[25px]">
+          <p className="font-inter font-normal text-[17px] leading-[26px] mb-4 text-[#000049] text-center mt-[25px]">
             {testimonials[currentTestimonial].text}
           </p>
           <p className="font-inter font-bold text-[25px] leading-[37px]  text-[#000049] mt-[25px]">
@@ -53,13 +57,15 @@ const TestimonialSlider = () => {
           </p>
         </div>
         <div className="">
-          <div className="w-[340px] h-[340px] bg-gray-300"></div>
+          {/*<div className="w-[340px] h-[340px] bg-gray-300"></div>*/}
           <div className="flex justify-center mt-4 space-x-2">
             {testimonials.map((_, index) => (
               <div
                 key={index}
                 className={`rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? " w-[60px] h-[8px] bg-[#000049]" : "bg-transparent w-[8px] h-[8px] border border-[#000049]"
+                  index === currentTestimonial
+                    ? "w-[60px] h-[8px] bg-[#000049]"
+                    : "bg-transparent w-[8px] h-[8px] border border-[#000049]"
                 }`}
               ></div>
             ))}
