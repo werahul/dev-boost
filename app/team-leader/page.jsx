@@ -206,7 +206,7 @@ const Page = () => {
                 <div className="flex space-x-0 items-start">
                   <li className="list-disc w-[15px]"></li>
                   <p className="font-inter text-[18px] leading-[27px] text-[#000049]">
-                    Fulfill your team's objectives and improve delivery
+                    Fulfill your team&lsquo;s objectives and improve delivery
                     predictability by fortifying your planning and retrospective
                     rituals.
                   </p>

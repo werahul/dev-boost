@@ -72,7 +72,7 @@ const Page = () => {
                       <>
                         <div className="space-y-4">
                           <li className="font-inter font-normal text-[18px] leading-[30px] list-disc text-white">
-                            What's the current work status and the root cause
+                            What&lsquo;s the current work status and the root cause
                             analysis of the delay? 
                           </li>
 
@@ -150,7 +150,7 @@ const Page = () => {
                 <div className="flex space-x-0 items-start">
                   <li className="list-disc w-[15px]"></li>
                   <p className="font-inter text-[18px] leading-[27px] text-[#000049]">
-                    Link the influence of an individual's effort to business
+                    Link the influence of an individual&lsquo;s effort to business
                     using statistics and concrete evidence.
                   </p>
                 </div>

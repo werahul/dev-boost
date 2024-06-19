@@ -72,7 +72,7 @@ const Page = () => {
                       <>
                         <div className="space-y-6">
                           <li className="font-inter font-normal text-[20px] leading-[30px] list-disc text-white">
-                            What's the status of current work and best practices
+                            What&lsquo;s the status of current work and best practices
                             followed?
                           </li>
 
