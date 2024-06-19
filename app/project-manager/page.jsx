@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 
-const page = () => {
+const Page = () => {
   const [activeTab, setActiveTab] = useState("problems");
   return (
     <div>
@@ -229,4 +229,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
