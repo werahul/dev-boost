@@ -29,7 +29,7 @@ const Page = () => {
             <div className="flex space-x-0 items-start">
               <li className="list-disc w-[15px]"></li>
               <p>
-                DevBoost works by mining data held in clients' underlying
+                DevBoost works by mining data held in clients&apos; underlying
                 software delivery toolsets (e.g. Jira, Git, Jenkins) to surface
                 in customizable dashboards used by the client to optimize their
                 (internal) delivery process.
