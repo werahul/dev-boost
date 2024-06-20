@@ -10,9 +10,15 @@ const Navbar = () => {
   const solutionsRef = useRef(null);
   const companyRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
+  const [showCaseStudyDropdown, setShowCaseStudyDropdown] = useState(false);
+  const [showDevBoostDropdown, setShowDevBoostDropdown] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleDropdownClick = (setDropdownState) => {
+    setDropdownState((prev) => !prev);
   };
 
   const handleMouseEnter = (setShowDropdown) => {
@@ -96,17 +102,27 @@ const Navbar = () => {
               isOpen ? "block" : "hidden"
             } lg:block bg-[#0e0131] lg:bg-transparent`}
           >
-            {isScrolled && <p className="text-white font-inter">Home</p>}
-            <li className="text-white hover:text-[#00ffba] cursor-pointer p-4 lg:p-0 text-center flex items-center space-x-2">
+            {isScrolled && (
+              <Link href="/">
+                {" "}
+                <p className="text-white font-inter">Home</p>
+              </Link>
+            )}
+
+            <Link
+              href="/product"
+              className="text-white hover:text-[#00ffba] cursor-pointer p-4 lg:p-0 text-center flex items-center space-x-2"
+            >
               <p>Product</p>
-            </li>
+            </Link>
+
             <li
               ref={solutionsRef}
-              className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group"
+              className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group cursor-pointer"
               onMouseEnter={() => handleMouseEnter(setShowSolutionsDropdown)}
               onMouseLeave={() => handleMouseLeave(setShowSolutionsDropdown)}
             >
-              <p>Solutions</p>
+              <p className="">Solutions</p>
               <svg
                 width="10"
                 height="7"
@@ -131,8 +147,12 @@ const Navbar = () => {
                     handleMouseLeave(setShowSolutionsDropdown)
                   }
                 >
-                  <Link href="/case-study">
-                    <li className="py-2  text-left flex items-center space-x-2 group2">
+                  <div
+                    onClick={() =>
+                      handleDropdownClick(setShowCaseStudyDropdown)
+                    }
+                  >
+                    <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
                       <p className="hover:text-[#00ffba]">Case Study</p>
                       <svg
                         width="10"
@@ -149,9 +169,31 @@ const Navbar = () => {
                         />
                       </svg>
                     </li>
-                  </Link>
-                  <Link href="/dev-boost">
-                    <li className="py-2  text-left flex items-center space-x-2 group2">
+                  </div>
+                  {showCaseStudyDropdown && (
+                    <div className="absolute top-0 left-[190px] mt-0 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md px-5">
+                      <Link href="/case-study/option1">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 1
+                        </li>
+                      </Link>
+                      <Link href="/case-study/option2">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 2
+                        </li>
+                      </Link>
+                      <Link href="/case-study/option3">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 3
+                        </li>
+                      </Link>
+                    </div>
+                  )}
+
+                  <div
+                    onClick={() => handleDropdownClick(setShowDevBoostDropdown)}
+                  >
+                    <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
                       <p className="hover:text-[#00ffba]">DevBoost Is For</p>
                       <svg
                         width="10"
@@ -168,7 +210,26 @@ const Navbar = () => {
                         />
                       </svg>
                     </li>
-                  </Link>
+                  </div>
+                  {showDevBoostDropdown && (
+                    <div className="absolute top-0 left-[190px] mt-0 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md shadow-lg px-5">
+                      <Link href="/dev-boost/option1">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 1
+                        </li>
+                      </Link>
+                      <Link href="/dev-boost/option2">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 2
+                        </li>
+                      </Link>
+                      <Link href="/dev-boost/option3">
+                        <li className="py-2 text-left hover:text-[#00ffba]">
+                          Option 3
+                        </li>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               )}
             </li>

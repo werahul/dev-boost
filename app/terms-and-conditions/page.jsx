@@ -319,7 +319,7 @@ const page = () => {
                 1. Your personal information as a customer or potential
                 customer, which we refer to as Customer Account Data, and <br />
                 2. The personal information contained within your company’s
-                source systems (e.g. Jira, Bitbucket, Slack), which the
+                source systems (e.g. Jira, Bitbucket, Slack), which the DevBoost application uses to provide software development analytics and performance insights. We refer to this data as Source Systeli Data.
               </p>
             </div>
             <div className="flex space-x-0 items-start">
