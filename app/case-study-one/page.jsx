@@ -2,7 +2,7 @@
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Page = () => {
   useEffect(() => {
