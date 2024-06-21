@@ -1,23 +1,41 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSolutionsDropdown, setShowSolutionsDropdown] = useState(false);
   const [showCompanyDropdown, setShowCompanyDropdown] = useState(false);
   const solutionsRef = useRef(null);
   const companyRef = useRef(null);
+  const graImage = useRef(null);
   const dropdownTimeoutRef = useRef(null);
   const [showCaseStudyDropdown, setShowCaseStudyDropdown] = useState(false);
   const [showDevBoostDropdown, setShowDevBoostDropdown] = useState(false);
+  const [openNestedDropdown, setOpenNestedDropdown] = useState(null);
+  const [activeMenuItem, setActiveMenuItem] = useState(pathname);
+  const [isGrad, setIsGrad] = useState("left-14");
+  const [isActive, setIsActive] = useState(false);
+
+  // const handleMenuItemClick = (menuItem) => {
+  //   router.push(`/${menuItem}`);
+  // };
+
+  const toggleActiveClass = () => {
+    setIsActive(!isActive);
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleDropdownClick = (setDropdownState) => {
+    setShowCaseStudyDropdown(false);
+    setShowDevBoostDropdown(false);
     setDropdownState((prev) => !prev);
   };
 
@@ -29,7 +47,8 @@ const Navbar = () => {
   const handleMouseLeave = (setShowDropdown) => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setShowDropdown(false);
-    }, 300);
+    }, 500);
+    setOpenNestedDropdown(null); // Close nested dropdowns on mouse leave
   };
 
   useEffect(() => {
@@ -59,10 +78,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setActiveMenuItem(pathname);
+  }, [pathname]);
+
   return (
-    <div className="relative">
+    <div className="">
       <div
-        className={`w-full flex justify-center z-50 ${
+        className={`w-full flex justify-center z-50  ${
           isScrolled ? "fixed bottom-0" : "fixed top-10"
         }`}
       >
@@ -74,10 +97,20 @@ const Navbar = () => {
           } transition-all duration-300`}
         >
           {!isScrolled && (
-            <div className="text-[#00ffba] text-2xl font-bold">
+            <div className="text-[#00ffba] text-2xl font-bold relative">
               <Link href="/">
                 <img src="/Images/devBoostLogo.png" alt="Logo" />
               </Link>
+
+              {activeMenuItem === "/" && (
+                <div className="absolute top-[100px] -left-[80px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
+                </div>
+              )}
             </div>
           )}
           <div className="block lg:hidden" onClick={toggleMenu}>
@@ -105,186 +138,323 @@ const Navbar = () => {
             {isScrolled && (
               <Link href="/">
                 {" "}
-                <p className="text-white font-inter">Home</p>
+                <p
+                  className={` hover:text-[#00ffba] font-inter ${
+                    activeMenuItem === "/" ? "text-[#00ffba]" : "text-white"
+                  }`}
+                >
+                  Home
+                </p>
               </Link>
             )}
 
-            <Link
-              href="/product"
-              className="text-white hover:text-[#00ffba] cursor-pointer p-4 lg:p-0 text-center flex items-center space-x-2"
-            >
-              <p>Product</p>
-            </Link>
-
-            <li
-              ref={solutionsRef}
-              className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group cursor-pointer"
-              onMouseEnter={() => handleMouseEnter(setShowSolutionsDropdown)}
-              onMouseLeave={() => handleMouseLeave(setShowSolutionsDropdown)}
-            >
-              <p className="">Solutions</p>
-              <svg
-                width="10"
-                height="7"
-                viewBox="0 0 10 7"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="group-hover:fill-[#00ffba]"
-              >
-                <path
-                  className="svg-path"
-                  d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
-                  fill="white"
-                />
-              </svg>
-              {showSolutionsDropdown && (
-                <div
-                  className="absolute top-[75px] -left-[10px] mt-2 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md shadow-lg px-5"
-                  onMouseEnter={() =>
-                    handleMouseEnter(setShowSolutionsDropdown)
-                  }
-                  onMouseLeave={() =>
-                    handleMouseLeave(setShowSolutionsDropdown)
-                  }
+            <div className="relative">
+              <Link href="/product">
+                <p
+                  className={` hover:text-[#00ffba] ${
+                    activeMenuItem === "/product"
+                      ? "text-[#00ffba]"
+                      : "text-white"
+                  }`}
                 >
+                  Product
+                </p>
+              </Link>
+              {activeMenuItem === "/product" && (
+                <div className="absolute top-[71px] -right-[200px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="relative">
+              <li
+                ref={solutionsRef}
+                className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group cursor-pointer"
+                onMouseEnter={() => handleMouseEnter(setShowSolutionsDropdown)}
+                onMouseLeave={() => handleMouseLeave(setShowSolutionsDropdown)}
+              >
+                <p
+                  className={`hover:text-[#00ffba] ${
+                    activeMenuItem === "/case-study-one"
+                      ? "text-[#00ffba]"
+                      : "text-white"
+                  }`}
+                >
+                  Solutions
+                </p>
+                <svg
+                  width="10"
+                  height="7"
+                  viewBox="0 0 10 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="group-hover:fill-[#00ffba] svg-path"
+                >
+                  <path
+                    className="svg-path"
+                    d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
+                    style={{
+                      fill:
+                        activeMenuItem === "/case-study-one"
+                          ? "#00ffba"
+                          : "white",
+                    }}
+                  />
+                </svg>
+                {showSolutionsDropdown && (
                   <div
-                    onClick={() =>
-                      handleDropdownClick(setShowCaseStudyDropdown)
+                    className={`absolute   ${
+                      isScrolled
+                        ? "bottom-[60px]  bg-[#19196F] bg-opacity-100 rounded-tl-md"
+                        : "top-[75px] bg-[#ffffff] bg-opacity-20 rounded-bl-md"
+                    } -left-[10px] h-[150px]  mt-2 w-48  text-white shadow-lg px-5 py-10`}
+                    onMouseEnter={() =>
+                      handleMouseEnter(setShowSolutionsDropdown)
+                    }
+                    onMouseLeave={() =>
+                      handleMouseLeave(setShowSolutionsDropdown)
                     }
                   >
-                    <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
-                      <p className="hover:text-[#00ffba]">Case Study</p>
-                      <svg
-                        width="10"
-                        height="7"
-                        viewBox="0 0 10 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="group-hover:fill-[#00ffba]"
-                      >
-                        <path
-                          className="svg-path2"
-                          d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </li>
-                  </div>
-                  {showCaseStudyDropdown && (
-                    <div className="absolute top-0 left-[190px] mt-0 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md px-5">
-                      <Link href="/case-study/option1">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 1
-                        </li>
-                      </Link>
-                      <Link href="/case-study/option2">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 2
-                        </li>
-                      </Link>
-                      <Link href="/case-study/option3">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 3
-                        </li>
-                      </Link>
+                    <div
+                      onClick={() =>
+                        handleDropdownClick(setShowCaseStudyDropdown)
+                      }
+                    >
+                      <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
+                        <p className="hover:text-[#00ffba]">Case Study</p>
+                        <svg
+                          width="10"
+                          height="7"
+                          viewBox="0 0 10 7"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="group-hover:fill-[#00ffba]"
+                        >
+                          <path
+                            className="svg-path2"
+                            d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </li>
                     </div>
-                  )}
+                    {showCaseStudyDropdown && (
+                      <div
+                        className={`absolute  ${
+                          isScrolled
+                            ? "bottom-[0px] bg-[#19196F] bg-opacity-100 rounded-tr-md"
+                            : "top-0 bg-[#ffffff] bg-opacity-20 rounded-br-md"
+                        } left-[190px] mt-0 w-48 h-[150px]   text-white  px-5 py-4`}
+                      >
+                        <Link href="/case-study-one">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Case Study 1
+                          </li>
+                        </Link>
+                        <Link href="#">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Case Study 2
+                          </li>
+                        </Link>
+                        <Link href="#">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Case Study 3
+                          </li>
+                        </Link>
+                      </div>
+                    )}
 
-                  <div
-                    onClick={() => handleDropdownClick(setShowDevBoostDropdown)}
+                    <div
+                      onClick={() =>
+                        handleDropdownClick(setShowDevBoostDropdown)
+                      }
+                    >
+                      <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
+                        <p className="hover:text-[#00ffba]">DevBoost Is For</p>
+                        <svg
+                          width="10"
+                          height="7"
+                          viewBox="0 0 10 7"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="group-hover:fill-[#00ffba]"
+                        >
+                          <path
+                            className="svg-path2"
+                            d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </li>
+                    </div>
+                    {showDevBoostDropdown && (
+                      <div
+                        className={`absolute   ${
+                          isScrolled
+                            ? "bottom-[0px]  bg-[#19196F] bg-opacity-100 rounded-t-md"
+                            : "-top-[8px] bg-[#ffffff] bg-opacity-20 rounded-br-md"
+                        } left-[190px] h-[150px]  mt-2 w-48  text-white shadow-lg px-5 py-4`}
+                      >
+                        <Link href="/dev-boost/option1">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Option 1
+                          </li>
+                        </Link>
+                        <Link href="/dev-boost/option2">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Option 2
+                          </li>
+                        </Link>
+                        <Link href="/dev-boost/option3">
+                          <li className="py-2 text-left hover:text-[#00ffba]">
+                            Option 3
+                          </li>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </li>
+              {activeMenuItem === "/case-study-one" && (
+                <div className="absolute top-[71px] -right-[190px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="relative">
+              <li className="text-white hover:text-[#00ffba] p-4 lg:p-0 text-center">
+                <Link href="/pricing">
+                  <p
+                    className={` hover:text-[#00ffba] ${
+                      activeMenuItem === "/pricing"
+                        ? "text-[#00ffba]"
+                        : "text-white"
+                    }`}
                   >
-                    <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
-                      <p className="hover:text-[#00ffba]">DevBoost Is For</p>
-                      <svg
-                        width="10"
-                        height="7"
-                        viewBox="0 0 10 7"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="group-hover:fill-[#00ffba]"
-                      >
-                        <path
-                          className="svg-path2"
-                          d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </li>
-                  </div>
-                  {showDevBoostDropdown && (
-                    <div className="absolute top-0 left-[190px] mt-0 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md shadow-lg px-5">
-                      <Link href="/dev-boost/option1">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 1
-                        </li>
-                      </Link>
-                      <Link href="/dev-boost/option2">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 2
-                        </li>
-                      </Link>
-                      <Link href="/dev-boost/option3">
-                        <li className="py-2 text-left hover:text-[#00ffba]">
-                          Option 3
-                        </li>
-                      </Link>
-                    </div>
-                  )}
+                    Pricing
+                  </p>
+                </Link>
+              </li>
+              {activeMenuItem === "/pricing" && (
+                <div className="absolute top-[71px] -right-[210px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
                 </div>
               )}
-            </li>
+            </div>
 
-            <li className="text-white hover:text-[#00ffba] p-4 lg:p-0 text-center">
-              <Link href="/pricing">
-                <p>Pricing</p>
-              </Link>
-            </li>
-            <li
-              ref={companyRef}
-              className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group"
-              onMouseEnter={() => handleMouseEnter(setShowCompanyDropdown)}
-              onMouseLeave={() => handleMouseLeave(setShowCompanyDropdown)}
-            >
-              <p>Company</p>
-              <svg
-                width="10"
-                height="7"
-                viewBox="0 0 10 7"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="group-hover:fill-[#00ffba]"
+            <div className="relative">
+              <li
+                ref={companyRef}
+                className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group"
+                onMouseEnter={() => handleMouseEnter(setShowCompanyDropdown)}
+                onMouseLeave={() => handleMouseLeave(setShowCompanyDropdown)}
               >
-                <path
-                  className="svg-path"
-                  d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
-                  fill="white"
-                />
-              </svg>
-              {showCompanyDropdown && (
-                <div
-                  className="absolute top-[75px] -left-[10px] mt-2 w-48 bg-[#ffffff] bg-opacity-10 text-white rounded-md shadow-lg px-5"
-                  onMouseEnter={() => handleMouseEnter(setShowCompanyDropdown)}
-                  onMouseLeave={() => handleMouseLeave(setShowCompanyDropdown)}
+                <p
+                  className={`hover:text-[#00ffba] ${
+                    activeMenuItem === "/about" || activeMenuItem === "/contact"
+                      ? "text-[#00ffba]"
+                      : "text-white"
+                  }`}
                 >
-                  <Link href="/about">
-                    <div className="px-0 py-2 text-white hover:text-[#00ffba] text-left">
-                      About Us
-                    </div>
-                  </Link>
-                  <Link href="/contact">
-                    <div className="px-0 py-2 text-white hover:text-[#00ffba] text-left">
-                      Contact Us
-                    </div>
-                  </Link>
+                  Company
+                </p>
+                <svg
+                  width="10"
+                  height="7"
+                  viewBox="0 0 10 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="group-hover:fill-[#00ffba] svg-path"
+                >
+                  <path
+                    className="svg-path"
+                    d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
+                    style={{
+                      fill:
+                        activeMenuItem === "/about" ||
+                        activeMenuItem === "/contact"
+                          ? "#00ffba"
+                          : "white",
+                    }}
+                  />
+                </svg>
+                {showCompanyDropdown && (
+                  <div
+                    className={`absolute ${
+                      isScrolled
+                        ? "bottom-[60px] bg-[#19196F] bg-opacity-100 rounded-t-md"
+                        : "top-[75px] bg-[#ffffff] bg-opacity-10 rounded-md"
+                    }  -left-[10px] mt-2 w-48   text-white  shadow-lg px-5`}
+                    onMouseEnter={() =>
+                      handleMouseEnter(setShowCompanyDropdown)
+                    }
+                    onMouseLeave={() =>
+                      handleMouseLeave(setShowCompanyDropdown)
+                    }
+                  >
+                    <Link href="/about">
+                      <div className="px-0 py-2 text-white hover:text-[#00ffba] text-left">
+                        About Us
+                      </div>
+                    </Link>
+                    <Link href="/contact">
+                      <div className="px-0 py-2 text-white hover:text-[#00ffba] text-left">
+                        Contact Us
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </li>
+              {(activeMenuItem === "/about" ||
+                activeMenuItem === "/contact") && (
+                <div className="absolute top-[71px] -right-[200px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
                 </div>
               )}
-            </li>
+            </div>
 
-            <li className="text-white hover:text-[#00ffba] p-4 lg:p-0 text-center">
-              <Link href="/blogs">
-                <p>Blogs</p>
-              </Link>
-            </li>
+            <div className="relative">
+              <li className="text-white hover:text-[#00ffba] p-4 lg:p-0 text-center">
+                <Link href="/blogs">
+                  <p
+                    className={`hover:text-[#00ffba] ${
+                      activeMenuItem === "/blogs"
+                        ? "text-[#00ffba]"
+                        : "text-white"
+                    }`}
+                  >
+                    Blogs
+                  </p>
+                </Link>
+              </li>
+              {activeMenuItem === "/blogs" && (
+                <div className="absolute top-[71px] -right-[220px]">
+                  <img
+                    src="/Images/navGra.png"
+                    alt=""
+                    className="min-w-[500px]"
+                  />
+                </div>
+              )}
+            </div>
           </ul>
           <div>
             <Link href="/">
@@ -295,15 +465,19 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      <div className="">
+
+      {/*<div ref={graImage}>
         <img
           src="/Images/navGra.png"
           alt=""
-          className={`fixed top-[170px] 2xl:left-[150px] left-14 ${
+          className={`absolute top-[170px]  ${
             isScrolled ? "hidden" : "block"
+          } ${pathname === "/product" ? "left-[17rem]" : isGrad} ${
+            isActive ? "active-move" : ""
           }`}
+          onClick={toggleActiveClass} // Example of how to trigger the class toggle
         />
-      </div>
+      </div>*/}
     </div>
   );
 };
