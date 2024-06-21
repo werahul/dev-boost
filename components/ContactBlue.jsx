@@ -133,13 +133,16 @@ const ContactBlue = () => {
           </p>
 
           <div className="mapBg lg:block hidden lg:w-[100%] mt-6 lg:mt-9  p-8 mx-auto h-[500px] lg:rounded-[8px] ">
-            <div className="bg-[#000049] text-white hidden  lg:space-x-4 lg:flex flex-col lg:flex-row lg:w-[461px] p-6 lg:rounded-[8px] ">
-              <a href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu" target="_blank" rel="noopener noreferrer">
+            <div className="bg-[#000049] text-white hidden  lg:space-x-10 justify-between lg:flex flex-col lg:flex-row lg:w-[461px] p-6 lg:rounded-[8px] ">
+              <a
+                href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="space-y-3">
                   <h3 className="font-bold font-inter text-2xl ">DevBoost</h3>
                   <p>
-                    Lorem ipsum dolor sit amet <br /> consectetur. Phasellus
-                    ante donec <br /> quis erat Tortor
+                    1 Marina Blvd, Level 20, Singapore <br /> 018989
                   </p>
                   <p className="text-xl flex items-center space-x-2">
                     <span>4.2</span>{" "}
@@ -155,7 +158,7 @@ const ContactBlue = () => {
                   </button>
                 </div>
               </a>
-              <div>
+              <div className="">
                 <img
                   src="/Images/direction.png"
                   alt=""
@@ -170,7 +173,11 @@ const ContactBlue = () => {
               <img src="" alt="" className="w-full" />
             </div>
             <div className="px-5 mt-5">
-              <a href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="space-y-3 shadow-2xl bg-[#f5f5f5] p-3 relative">
                   <h3 className="font-bold text-lg lg:text-2xl ">DevBoost</h3>
                   <p className="text-[12px] lg:text-base w-[70%]">

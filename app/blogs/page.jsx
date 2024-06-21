@@ -1,10 +1,15 @@
+"use client"
 import AllBlogs from "@/components/AllBlogs";
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 
 const page = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, []);
   return (
     <div>
       <Navbar />

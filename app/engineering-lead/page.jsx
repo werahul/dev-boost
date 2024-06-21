@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const Page = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, []);
   const [activeTab, setActiveTab] = useState("problems");
   return (
     <div>

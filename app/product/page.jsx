@@ -1,3 +1,4 @@
+"use client"
 import Cta from "@/components/Cta";
 import DevBoostIntegration from "@/components/DevBoostIntegration";
 import Footer from "@/components/Footer";
@@ -5,9 +6,13 @@ import HomeBlogs from "@/components/HomeBlogs";
 import Navbar from "@/components/Navbar";
 import ProductFaq from "@/components/ProductFaq";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Page = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, []);
   return (
     <div>
       <Navbar />
