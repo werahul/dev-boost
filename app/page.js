@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
