@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const Page = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+    // svd
   }, []);
   const [activeTab, setActiveTab] = useState("problems");
   return (
