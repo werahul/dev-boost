@@ -180,7 +180,10 @@ const Navbar = () => {
               >
                 <p
                   className={`hover:text-[#00ffba] ${
-                    activeMenuItem === "/case-study-one"
+                    activeMenuItem === "/case-study-one" ||
+                    activeMenuItem === "/engineering-lead" ||
+                    activeMenuItem === "/project-manager" ||
+                    activeMenuItem === "/team-leader"
                       ? "text-[#00ffba]"
                       : "text-white"
                   }`}
@@ -200,7 +203,10 @@ const Navbar = () => {
                     d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
                     style={{
                       fill:
-                        activeMenuItem === "/case-study-one"
+                        activeMenuItem === "/case-study-one" ||
+                        activeMenuItem === "/engineering-lead" ||
+                        activeMenuItem === "/project-manager" ||
+                        activeMenuItem === "/team-leader"
                           ? "#00ffba"
                           : "white",
                     }}
@@ -298,21 +304,21 @@ const Navbar = () => {
                           isScrolled
                             ? "bottom-[0px]  bg-[#19196F] bg-opacity-100 rounded-t-md"
                             : "-top-[8px] bg-[#ffffff] bg-opacity-20 rounded-br-md"
-                        } left-[190px] h-[150px]  mt-2 w-48  text-white shadow-lg px-5 py-4`}
+                        } left-[190px] h-[150px]  mt-2 w-[230px]  text-white shadow-lg px-5 py-4`}
                       >
-                        <Link href="/dev-boost/option1">
+                        <Link href="/engineering-lead">
                           <li className="py-2 text-left hover:text-[#00ffba]">
-                            Option 1
+                            For Engineering Lead
                           </li>
                         </Link>
-                        <Link href="/dev-boost/option2">
+                        <Link href="/project-manager">
                           <li className="py-2 text-left hover:text-[#00ffba]">
-                            Option 2
+                            For Project Manager
                           </li>
                         </Link>
-                        <Link href="/dev-boost/option3">
+                        <Link href="/team-leader">
                           <li className="py-2 text-left hover:text-[#00ffba]">
-                            Option 3
+                            For Team Leader
                           </li>
                         </Link>
                       </div>
@@ -320,7 +326,7 @@ const Navbar = () => {
                   </div>
                 )}
               </li>
-              {activeMenuItem === "/case-study-one" && (
+              {(activeMenuItem === "/case-study-one" || activeMenuItem === "/engineering-lead" || activeMenuItem === "/project-manager" || activeMenuItem === "/team-leader" ) && (
                 <div className="absolute top-[71px] -right-[190px]">
                   <img
                     src="/Images/navGra.png"
