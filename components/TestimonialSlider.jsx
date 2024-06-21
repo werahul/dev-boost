@@ -57,12 +57,12 @@ const TestimonialSlider = () => {
           </p>
         </div>
         <div className="">
-          {/*<div className="w-[340px] h-[340px] bg-gray-300"></div>*/}
           <div className="flex justify-center mt-4 space-x-2">
             {testimonials.map((_, index) => (
               <div
                 key={index}
-                className={`rounded-full transition-all duration-300 ${
+                onClick={() => setCurrentTestimonial(index)}
+                className={`cursor-pointer rounded-full transition-all duration-300 ${
                   index === currentTestimonial
                     ? "w-[60px] h-[8px] bg-[#000049]"
                     : "bg-transparent w-[8px] h-[8px] border border-[#000049]"

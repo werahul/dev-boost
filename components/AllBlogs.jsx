@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const blogData = [
@@ -10,6 +11,7 @@ const blogData = [
     description:
       "How DevBoost helps clients move towards data-driven conversations.",
     tags: ["All Blogs", "Best Practices"],
+    links: "/blogs/new-age-practices",
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const blogData = [
     description:
       "How clients use DevBoost to analyze data points and drive key business outcomes.",
     tags: ["All Blogs", "Best Practices"],
+    links: "#",
   },
   {
     id: 3,
@@ -27,6 +30,7 @@ const blogData = [
     title: "Latest Techniques For Strategy & Planning",
     description: "Top 5 challenges that engineering managers are facing today.",
     tags: ["All Blogs", "Strategy"],
+    links: "#",
   },
   {
     id: 4,
@@ -36,6 +40,7 @@ const blogData = [
     description:
       "How DevBoost can help you leverage the software engineering opportunity.",
     tags: ["All Blogs", "Operations"],
+    links: "#",
   },
   {
     id: 5,
@@ -44,6 +49,7 @@ const blogData = [
     title: "How To Communicate More Effectively With Your Engineering Peers",
     description: "Ways to make the most out of cross-functional team meetings.",
     tags: ["All Blogs", "Management"],
+    links: "#",
   },
   {
     id: 6,
@@ -53,6 +59,7 @@ const blogData = [
     description:
       "Learn how a startup reduced the spillover rate from 90% to almost 0%.",
     tags: ["All Blogs", "Best Practices", "Operations"],
+    links: "#",
   },
 ];
 
@@ -73,11 +80,11 @@ const AllBlogs = () => {
 
   return (
     <div className="pt-[118px] pb-[156px] px-20 max-container">
-      <div className="tagsButtons h-[121px] rounded-lg border border-[#000049] p-3 flex items-center justify-between">
+      <div className="tagsButtons h-[89px] rounded-lg border border-[#000049] p-3 flex items-center justify-between">
         {tags.map((tag) => (
           <button
             key={tag}
-            className={`h-[98px] w-auto px-7 rounded-lg font-inter text-[24px] ${
+            className={`h-[65px] w-auto px-7 rounded-lg font-inter text-[24px] ${
               activeTag === tag
                 ? "bg-[#000049] text-white"
                 : "bg-transparent text-[#000049]"
@@ -93,7 +100,7 @@ const AllBlogs = () => {
         {filteredBlogs.map((blog) => (
           <div
             key={blog.id}
-            className="h-[555px] rounded-[8px] w-full bg-[#000049] relative"
+            className="min-h-[580px] rounded-[8px] w-full bg-[#000049] relative"
           >
             <img src={blog.imgSrc} alt={`Blog${blog.id}`} className="w-full" />
             <div className="text-white p-7">
@@ -115,20 +122,24 @@ const AllBlogs = () => {
               <p className="font-inter text-[24px] font-semibold leading-[30px] mt-3">
                 {blog.title}
               </p>
-              <p className="font-inter text-[16px] font-normal leading-[24px] mt-3 opacity-90">
+              <p className="font-inter text-[16px] font-normal leading-[24px] mt-3 opacity-90 pr-5">
                 {blog.description}
               </p>
-              <div className="font-inter font-semibold text-[16px] text-[#1FFFA3] mt-4 flex items-center cursor-pointer space-x-2 hover:space-x-3 transition-all duration-100 w-[140px] absolute bottom-7 left-7">
-                <p>Read More</p>
-                <img src="/Images/moreArr.png" alt="" />
-              </div>
+              {blog.links ? (
+                <Link href={blog.links}>
+                  <div className="font-inter font-semibold text-[16px] text-[#1FFFA3] mt-4 flex items-center cursor-pointer space-x-2 hover:space-x-3 transition-all duration-100 w-[140px] absolute bottom-7 left-7">
+                    <p>Read More</p>
+                    <img src="/Images/moreArr.png" alt="" />
+                  </div>
+                </Link>
+              ) : null}
             </div>
           </div>
         ))}
       </div>
 
       <div className="flex items-center justify-center mt-[56px]">
-        <button className="w-[159px] h-[60px] bg-[#000049] border border-[#000049] hover:bg-transparent hover:text-[#000049] rounded-lg font-inter text-[20px] text-white">
+        <button className="mt-0 rounded-[8px] font-inter text-[20px] hover:bg-[#000049] hover:text-[#1FFFA3] text-[#000049] font-semibold w-[159px] h-[60px] border border-[#000049]">
           View All
         </button>
       </div>

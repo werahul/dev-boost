@@ -3,7 +3,7 @@ import React from "react";
 const ContactBlue = () => {
   return (
     <div>
-      <div className="aboutBg w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="pricingBg w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="tracking-wide font-flyHead text-[64px] leading-[74px] text-[#ffffff] text-center uppercase">
           Have a question about DevBoost? <br /> Contact us today!
         </p>
@@ -31,7 +31,7 @@ const ContactBlue = () => {
                 You can either complete the form or directly reach out to us
                 with the below-mentioned contact details.
               </p>
-              <div className="space-y-4 mt-5">
+              <div className="space-y-[28px] mt-7">
                 <div className="flex items-center space-x-4">
                   <div className="">
                     <img src="/Images/mailIcon.png" alt="mail" />
@@ -119,7 +119,7 @@ const ContactBlue = () => {
                   </div>
                 </div>
 
-                <button className="mt-10 rounded-[8px] font-inter text-[20px] text-[#000049] font-semibold w-[149px] h-[60px] border border-[#000049]">
+                <button className="mt-10 rounded-[8px] font-inter text-[20px] hover:bg-[#000049] hover:text-[#1FFFA3] text-[#000049] font-semibold w-[149px] h-[60px] border border-[#000049]">
                   Submit
                 </button>
               </form>
@@ -133,8 +133,8 @@ const ContactBlue = () => {
           </p>
 
           <div className="mapBg lg:block hidden lg:w-[100%] mt-6 lg:mt-9  p-8 mx-auto h-[500px] lg:rounded-[8px] ">
-            <div className="bg-[#f5f5f5] hidden  lg:space-x-4 lg:flex flex-col lg:flex-row lg:w-[461px] p-6 lg:rounded-[8px] ">
-              <a href="" target="_blank" rel="noopener noreferrer">
+            <div className="bg-[#000049] text-white hidden  lg:space-x-4 lg:flex flex-col lg:flex-row lg:w-[461px] p-6 lg:rounded-[8px] ">
+              <a href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu" target="_blank" rel="noopener noreferrer">
                 <div className="space-y-3">
                   <h3 className="font-bold font-inter text-2xl ">DevBoost</h3>
                   <p>
@@ -150,7 +150,7 @@ const ContactBlue = () => {
                     />
                   </p>
 
-                  <button className="underline text-[#000049] font-medium cursor-pointer">
+                  <button className="underline text-white font-medium cursor-pointer">
                     View larger map
                   </button>
                 </div>
@@ -161,7 +161,7 @@ const ContactBlue = () => {
                   alt=""
                   className="w-[24px] mx-auto"
                 />
-                <p className="text-center text-[#000049]">Directions</p>
+                <p className="text-center text-white">Directions</p>
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@ const ContactBlue = () => {
               <img src="" alt="" className="w-full" />
             </div>
             <div className="px-5 mt-5">
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.google.com/maps/dir//1+Marina+Blvd,+Level+20,+Singapore+018989/@1.2821991,103.7702493,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31da19d2163f639f:0x251b930f8b4bce85!2m2!1d103.8526418!2d1.2821856?entry=ttu" target="_blank" rel="noopener noreferrer">
                 <div className="space-y-3 shadow-2xl bg-[#f5f5f5] p-3 relative">
                   <h3 className="font-bold text-lg lg:text-2xl ">DevBoost</h3>
                   <p className="text-[12px] lg:text-base w-[70%]">

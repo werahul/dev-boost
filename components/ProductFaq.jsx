@@ -195,7 +195,7 @@ const ProductFaq = () => {
       {!showAll && (
         <div className="flex items-center justify-center mt-[48px]">
           <button
-            className="w-[160px] h-[60px] border-[1.5px] border-[#000049] font-inter font-semibold text-[20px] rounded-lg"
+            className="mt-0 rounded-[8px] font-inter text-[20px] hover:bg-[#000049] hover:text-[#1FFFA3] text-[#000049] font-semibold w-[159px] h-[60px] border border-[#000049]"
             onClick={() => setShowAll(true)}
           >
             View All

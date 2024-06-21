@@ -71,6 +71,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <DevBoostIntegration />
       <div className="pt-[156px] px-20">
         <div className="text-center font-inter font-normal text-[48px] text-[#000049]">
           How <span className="font-semibold"> DevBoost Works</span>
@@ -85,9 +86,8 @@ const Page = () => {
         </p>
         <img src="/Images/intTools.png" alt="" className="mt-[43px]" />
       </div>
-      <DevBoostIntegration />
       <TestimonialSlider />
-      <ProductFaq/>
+      <ProductFaq />
       <Cta />
       <Footer />
     </div>

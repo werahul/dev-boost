@@ -30,14 +30,14 @@ const Page = () => {
                 <div className="w-[50%] ">
                   {activeTab === "problems" && (
                     <img
-                      src="/Images/projectManager.png"
+                      src="/Images/teamLeaderVector.png"
                       alt="Problems"
                       className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"
                     />
                   )}
                   {activeTab === "solutions" && (
                     <img
-                      src="/Images/projectManager.png"
+                      src="/Images/teamLeaderVector.png"
                       alt="Solutions"
                       className="z-20 absolute top-20 w-[520px] backdrop-blur-[10px] bg-opacity-50"
                     />

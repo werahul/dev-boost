@@ -18,7 +18,7 @@ const page = () => {
           </p>
         </div>
         <div className="px-20 flex items-start justify-center -mt-[340px]  max-container ">
-          <img src="/Images/newAgeBlogImg.png" alt="New Age" className="w-full" />
+          <img src="/Images/newAgeBlogImg.png" alt="New Age" className="" />
         </div>
       </section>
       <section className="py-[140px] px-20 max-container">
@@ -28,7 +28,7 @@ const page = () => {
             <p className="font-inter font-semibold text-[24px] text-[#000049]">
               John Doe
             </p>
-            <p className="font-inter font-semibold text-[16px] text-[#455A64]">
+            <p className="font-inter font-normal text-[16px] text-[#455A64]">
               May 18, 2024
             </p>
           </div>

@@ -2,15 +2,15 @@ import React from "react";
 
 const PricingPlan = () => {
   return (
-    <div className="bg-[#F5F3F6] lg:mt-[150px] py-[124px] px-20">
+    <div className="bg-[#F5F3F6] lg:mt-[150px] py-[104px] px-20">
       <section className=" lg:block hidden max-container">
         <div className="text-center font-inter font-semibold text-[48px] text-[#000049]">
           Plan Details
         </div>
-        <div className="text-[#000049] lg:mt-[60px] font-inter border border-[#000049] rounded-lg py-20 px-5">
+        <div className="text-[#000049] lg:mt-[40px] font-inter border border-[#000049] rounded-lg pt-20 px-5 relative">
           <div className="flex justify-between px-[40px]">
             <p className="font-semibold text-[32px]">Features</p>
-            <div className="flex space-x-24 font-semibold text-[24px] text-center">
+            <div className="flex space-x-24 font-semibold text-[24px] text-center ">
               <p>Freemium</p>
               <p>Fast-Growing Teams</p>
               <p>Enterprises</p>

@@ -9,7 +9,7 @@ const AboutSwitch = () => {
         return (
           <>
             <div className="">
-              <img src="/Images/aboutVision.png" alt="Vision" />
+              <img src="/Images/aboutVision.png" alt="Vision" className="w-[336px]" />
             </div>
             <div className="w-[70%] ">
               <p className="font-inter font-normal text-[16px] leading-[24px] text-[#ffffff]">
@@ -61,7 +61,7 @@ const AboutSwitch = () => {
                 informed decisions.
               </p>
 
-              <div className="grid grid-cols-2 gap-x-10 gap-y-10 mt-10">
+              <div className="grid grid-cols-2 gap-x-0 gap-y-8 mt-8 pr-20">
                 <div className=" flex items-center space-x-2">
                   <img src="/Images/ab1.png" alt="" />
                   <p className="font-inter font-medium text-[16px] text-white">
@@ -96,14 +96,14 @@ const AboutSwitch = () => {
   };
 
   return (
-    <div className="h-[594px] bg-[#000049] rounded-[20px] px-10 py-14 relative">
+    <div className="h-[594px] BlueGra2 rounded-[20px] px-10 py-14 relative">
       <div className="bg-[#ffffff] bg-opacity-15 w-full p-3 rounded-[8px] flex items-center justify-between">
         <div
           className={`cursor-pointer ${
             selectedTab === "Vision"
               ? "bg-[#ffffff] text-[#000049] font-semibold"
               : "bg-transparent text-white font-normal opacity-70"
-          } px-6 h-[88px] w-[300px] rounded-[8px] flex items-center space-x-3 text-[21px]`}
+          } px-6 h-[88px] w-[350px] rounded-[8px] flex items-center space-x-3 text-[21px]`}
           onClick={() => setSelectedTab("Vision")}
         >
           <img src="/Images/abVision.png" alt="Vision" />

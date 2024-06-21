@@ -30,7 +30,7 @@ const HomeBlue = () => {
     "Quality",
     "Process",
   ];
-  const percentageTexts = ["8X", "99%", "50%", "60%", "50%", "80%"];
+  const percentageTexts = ["8X", "99%", ">50%", "60%", ">50%", ">80%"];
   let index = 0;
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const HomeBlue = () => {
 
   return (
     <div className="">
-      <div className="aboutBg w-full h-[859px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="pricingBg w-full h-[859px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="font-bold tracking-wide wordSpace font-flyHead text-[64px] leading-[94px] text-[#ffffff] text-center">
           BOOST{" "}
           <span
@@ -70,12 +70,12 @@ const HomeBlue = () => {
         </p>
         <p className="font-inter font-normal text-[18px] leading-[23.4px] text-[#ffffff] text-center mt-5">
           DevBoost is an all-in-one engineering intelligence tool that provides
-          precise predictive <br /> analysis, forecasts, personalized recommendations
-          and actionable insights to mitigate risks <br /> and boost productivity
-          across tech verticals.
+          precise predictive <br /> analysis, forecasts, personalized
+          recommendations and actionable insights to mitigate risks <br /> and
+          boost productivity across tech verticals.
         </p>
         <div className="flex justify-center items-center">
-          <button className="bg-[#1FFFA3] hover:bg-transparent border boder-[#1FFFA3] rounded-[8px] w-[243px] h-[56px] font-bold text-[20px] text-[#000049] hover:text-[#1FFFA3] mt-10 ">
+          <button className="bg-[#1FFFA3] glowEffect hover:bg-transparent border boder-[#1FFFA3] rounded-[8px] w-[243px] h-[56px] font-bold text-[20px] text-[#000049] hover:text-[#1FFFA3] mt-10 ">
             Request A Demo
           </button>
         </div>
@@ -100,7 +100,7 @@ const HomeBlue = () => {
         <div className="max-container">
           <div className="mt-[80px] px-20">
             <div className="">
-              <div className="h-[576px] bg-[#000049] rounded-[20px] px-10 py-14 flex items-start space-x-10 relative">
+              <div className="h-[576px] BlueGra rounded-[20px] px-10 py-14 flex items-start space-x-10 relative">
                 <div className="w-[50%] ">
                   {activeTab === "problems" && (
                     <img
@@ -123,7 +123,7 @@ const HomeBlue = () => {
                     <button
                       className={`w-[50%] h-[50px] rounded-[8px] ${
                         activeTab === "problems"
-                          ? "bg-white font-semibold text-[#000049]"
+                          ? "bg-white font-bold text-[#000049]"
                           : "bg-transparent font-normal text-white"
                       } font-inter text-[16px]`}
                       onClick={() => setActiveTab("problems")}
@@ -133,7 +133,7 @@ const HomeBlue = () => {
                     <button
                       className={`w-[50%] h-[50px] rounded-[8px] ${
                         activeTab === "solutions"
-                          ? "bg-white font-semibold text-[#000049]"
+                          ? "bg-white font-bold text-[#000049]"
                           : "bg-transparent font-normal text-white"
                       } font-inter text-[16px]`}
                       onClick={() => setActiveTab("solutions")}
@@ -229,9 +229,15 @@ const HomeBlue = () => {
               </span> & <span className="font-semibold">Delivery</span>
             </p>
 
-            <div className="rounded-[20px] px-10 py-14 flex items-start space-x-10">
-              <div className="w-[50%]">
+            <div className="rounded-[20px] px-10 pt-14 flex items-center space-x-10 relative">
+              <div className="w-[53%] z-10">
                 <img src="/Images/laptop.gif" alt="laptop" className="" />
+                <a href="https://leaddev.com/scaling-teams-hypergrowth/four-engineering-leadership-trends-you-need-know" target="_blank" className="">
+                  <p className="mt-2 font-inter text-[12px] whitespace-nowrap text-[#000049] text-center">
+                    [Source:
+                    https://leaddev.com/scaling-teams-hypergrowth/four-engineering-leadership-trends-you-need-know]
+                  </p>
+                </a>
               </div>
               <div className="w-[50%]">
                 <div className="flex items-start">
@@ -264,6 +270,7 @@ const HomeBlue = () => {
                   Tour The Product
                 </button>
               </div>
+              <div class="gradient-circle3"></div>
             </div>
 
             <p className="font-inter font-normal text-[48px] leading-[58px] text-center text-[#000049] pt-[156px]">
@@ -309,7 +316,7 @@ const HomeBlue = () => {
                 <p className="font-inter font-semibold text-[24px] text-[#FFFFFF] mt-6">
                   Team Leader
                 </p>
-                <p className="font-inter font-normal text-[16px] text-[#FFFFFF] leading-[24px] mt-3">
+                <p className="font-inter font-normal text-[16px] text-[#FFFFFF] leading-[24px] mt-3 pr-5">
                   Evaluate sprint progress, task completion, performance trends,
                   time allocation, task changes, and utilization levels.
                   Identify and fix spillovers, bug origins and sprint blockers.

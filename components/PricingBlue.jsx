@@ -10,7 +10,7 @@ const PricingBlue = () => {
 
   return (
     <div>
-      <div className="pricingBg w-full h-[1100px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="pricingBg w-full h-[1150px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="tracking-wide font-bold font-flyHead text-[64px] leading-[74px] text-[#ffffff] text-center uppercase">
           SIMPLE, TRANSPARENT <br />
           PRICING PLANS

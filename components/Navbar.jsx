@@ -33,12 +33,25 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleDropdownClick = (setDropdownState) => {
+  const handleDropdownClick = (setDropdownState, currentDropdownState) => {
     setShowCaseStudyDropdown(false);
     setShowDevBoostDropdown(false);
-    setDropdownState((prev) => !prev);
+    setDropdownState(!currentDropdownState);
   };
 
+  const handleNestedDropdownClick = (
+    setNestedDropdownState,
+    currentNestedDropdownState,
+    otherNestedDropdownState,
+    setParentDropdownState
+  ) => {
+    setParentDropdownState(true); // Ensure the parent dropdown is open
+    setNestedDropdownState(!currentNestedDropdownState);
+    if (!currentNestedDropdownState) {
+      // Close the other nested dropdown if it's open
+      otherNestedDropdownState(false);
+    }
+  };
   const handleMouseEnter = (setShowDropdown) => {
     clearTimeout(dropdownTimeoutRef.current);
     setShowDropdown(true);
@@ -173,13 +186,13 @@ const Navbar = () => {
 
             <div className="relative">
               <li
-                ref={solutionsRef}
                 className="relative text-white hover:text-[#00ffba] p-4 lg:p-0 text-center flex items-center space-x-2 group cursor-pointer"
                 onMouseEnter={() => handleMouseEnter(setShowSolutionsDropdown)}
                 onMouseLeave={() => handleMouseLeave(setShowSolutionsDropdown)}
               >
                 <p
                   className={`hover:text-[#00ffba] ${
+                    showSolutionsDropdown ||
                     activeMenuItem === "/case-study-one" ||
                     activeMenuItem === "/engineering-lead" ||
                     activeMenuItem === "/project-manager" ||
@@ -203,6 +216,7 @@ const Navbar = () => {
                     d="M5.43912 6.04625C5.44537 6.03875 5.44788 6.02875 5.45412 6.02125L9.81787 1.2C10.0616 0.92875 10.0616 0.48875 9.81787 0.2175C9.81538 0.215 9.81288 0.21375 9.81038 0.2125C9.75614 0.146819 9.68822 0.0937731 9.61136 0.0570691C9.5345 0.020365 9.45055 0.000888367 9.36538 0H0.636625C0.54989 0.00140152 0.464521 0.0218309 0.386548 0.0598454C0.308575 0.09786 0.2399 0.152532 0.185375 0.22L0.182875 0.2175C0.0649129 0.353982 0 0.528354 0 0.70875C0 0.889145 0.0649129 1.06352 0.182875 1.2L4.55663 6.04625C4.61107 6.11008 4.67872 6.16133 4.7549 6.19648C4.83108 6.23162 4.91398 6.24982 4.99788 6.24982C5.08177 6.24982 5.16467 6.23162 5.24085 6.19648C5.31703 6.16133 5.38468 6.11008 5.43912 6.04625Z"
                     style={{
                       fill:
+                        showSolutionsDropdown ||
                         activeMenuItem === "/case-study-one" ||
                         activeMenuItem === "/engineering-lead" ||
                         activeMenuItem === "/project-manager" ||
@@ -214,32 +228,39 @@ const Navbar = () => {
                 </svg>
                 {showSolutionsDropdown && (
                   <div
-                    className={`absolute   ${
+                    className={`absolute ${
                       isScrolled
-                        ? "bottom-[60px]  bg-[#19196F] bg-opacity-100 rounded-tl-md"
-                        : "top-[75px] bg-[#ffffff] bg-opacity-20 rounded-bl-md"
-                    } -left-[10px] h-[150px]  mt-2 w-48  text-white shadow-lg px-5 py-10`}
-                    onMouseEnter={() =>
-                      handleMouseEnter(setShowSolutionsDropdown)
-                    }
-                    onMouseLeave={() =>
-                      handleMouseLeave(setShowSolutionsDropdown)
-                    }
+                        ? "bottom-[60px] bg-[#19196F] bg-opacity-100 rounded-tl-md"
+                        : "top-[75px] bg-[#ffffff] bg-opacity-10 rounded-bl-md"
+                    } -left-[10px] h-[100px] mt-2 w-48 text-white shadow-lg px-5 py-2`}
                   >
                     <div
                       onClick={() =>
-                        handleDropdownClick(setShowCaseStudyDropdown)
+                        handleNestedDropdownClick(
+                          setShowCaseStudyDropdown,
+                          showCaseStudyDropdown,
+                          setShowDevBoostDropdown,
+                          setShowSolutionsDropdown
+                        )
                       }
                     >
                       <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
-                        <p className="hover:text-[#00ffba]">Case Study</p>
+                        <p
+                          className={`hover:text-[#00ffba] ${
+                            showCaseStudyDropdown ? "text-[#00ffba]" : ""
+                          }`}
+                        >
+                          Case Study
+                        </p>
                         <svg
                           width="10"
                           height="7"
                           viewBox="0 0 10 7"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="group-hover:fill-[#00ffba]"
+                          className={`group-hover:fill-[#00ffba] ${
+                            showCaseStudyDropdown ? "fill-[#00ffba]" : ""
+                          }`}
                         >
                           <path
                             className="svg-path2"
@@ -251,11 +272,11 @@ const Navbar = () => {
                     </div>
                     {showCaseStudyDropdown && (
                       <div
-                        className={`absolute  ${
+                        className={`absolute ${
                           isScrolled
                             ? "bottom-[0px] bg-[#19196F] bg-opacity-100 rounded-tr-md"
-                            : "top-0 bg-[#ffffff] bg-opacity-20 rounded-br-md"
-                        } left-[190px] mt-0 w-48 h-[150px]   text-white  px-5 py-4`}
+                            : "top-0 bg-[#ffffff] bg-opacity-10 rounded-br-md"
+                        } left-[190px] mt-0 w-48 h-[150px] text-white px-5 py-4`}
                       >
                         <Link href="/case-study-one">
                           <li className="py-2 text-left hover:text-[#00ffba]">
@@ -274,21 +295,33 @@ const Navbar = () => {
                         </Link>
                       </div>
                     )}
-
                     <div
                       onClick={() =>
-                        handleDropdownClick(setShowDevBoostDropdown)
+                        handleNestedDropdownClick(
+                          setShowDevBoostDropdown,
+                          showDevBoostDropdown,
+                          setShowCaseStudyDropdown,
+                          setShowSolutionsDropdown
+                        )
                       }
                     >
-                      <li className="py-2 text-left flex items-center space-x-2 group2 cursor-pointer">
-                        <p className="hover:text-[#00ffba]">DevBoost Is For</p>
+                      <li className="py-2 text-left flex items-center space-x-2 group cursor-pointer">
+                        <p
+                          className={`hover:text-[#00ffba] ${
+                            showDevBoostDropdown ? "text-[#00ffba]" : ""
+                          }`}
+                        >
+                          Dev Boost
+                        </p>
                         <svg
                           width="10"
                           height="7"
                           viewBox="0 0 10 7"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          className="group-hover:fill-[#00ffba]"
+                          className={`group-hover:fill-[#00ffba] ${
+                            showDevBoostDropdown ? "fill-[#00ffba]" : ""
+                          }`}
                         >
                           <path
                             className="svg-path2"
@@ -300,11 +333,11 @@ const Navbar = () => {
                     </div>
                     {showDevBoostDropdown && (
                       <div
-                        className={`absolute   ${
+                        className={`absolute ${
                           isScrolled
-                            ? "bottom-[0px]  bg-[#19196F] bg-opacity-100 rounded-t-md"
-                            : "-top-[8px] bg-[#ffffff] bg-opacity-20 rounded-br-md"
-                        } left-[190px] h-[150px]  mt-2 w-[230px]  text-white shadow-lg px-5 py-4`}
+                            ? "bottom-[0px] bg-[#19196F] bg-opacity-100 rounded-t-md"
+                            : "-top-[8px] bg-[#ffffff] bg-opacity-10 rounded-br-md"
+                        } left-[190px] h-[150px] mt-2 w-[230px] text-white shadow-lg px-5 py-4`}
                       >
                         <Link href="/engineering-lead">
                           <li className="py-2 text-left hover:text-[#00ffba]">
@@ -326,7 +359,10 @@ const Navbar = () => {
                   </div>
                 )}
               </li>
-              {(activeMenuItem === "/case-study-one" || activeMenuItem === "/engineering-lead" || activeMenuItem === "/project-manager" || activeMenuItem === "/team-leader" ) && (
+              {(activeMenuItem === "/case-study-one" ||
+                activeMenuItem === "/engineering-lead" ||
+                activeMenuItem === "/project-manager" ||
+                activeMenuItem === "/team-leader") && (
                 <div className="absolute top-[71px] -right-[190px]">
                   <img
                     src="/Images/navGra.png"
@@ -371,7 +407,9 @@ const Navbar = () => {
               >
                 <p
                   className={`hover:text-[#00ffba] ${
-                    activeMenuItem === "/about" || activeMenuItem === "/contact"
+                    activeMenuItem === "/about" ||
+                    activeMenuItem === "/contact" ||
+                    showCompanyDropdown
                       ? "text-[#00ffba]"
                       : "text-white"
                   }`}
@@ -392,7 +430,8 @@ const Navbar = () => {
                     style={{
                       fill:
                         activeMenuItem === "/about" ||
-                        activeMenuItem === "/contact"
+                        activeMenuItem === "/contact" ||
+                        showCompanyDropdown
                           ? "#00ffba"
                           : "white",
                     }}
@@ -442,7 +481,8 @@ const Navbar = () => {
                 <Link href="/blogs">
                   <p
                     className={`hover:text-[#00ffba] ${
-                      activeMenuItem === "/blogs"
+                      activeMenuItem === "/blogs" ||
+                      activeMenuItem === "/blogs/new-age-practices"
                         ? "text-[#00ffba]"
                         : "text-white"
                     }`}
@@ -451,7 +491,8 @@ const Navbar = () => {
                   </p>
                 </Link>
               </li>
-              {activeMenuItem === "/blogs" && (
+              {(activeMenuItem === "/blogs" ||
+                activeMenuItem === "/blogs/new-age-practices") && (
                 <div className="absolute top-[71px] -right-[220px]">
                   <img
                     src="/Images/navGra.png"

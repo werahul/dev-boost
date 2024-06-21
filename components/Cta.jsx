@@ -42,8 +42,8 @@ const Cta = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[40%]">
-                <img src="/Images/laptopIm.png" alt="" className="w-[550px]" />
+              <div className="w-[50%]">
+                <img src="/Images/laptopIm.png" alt="" className="w-[650px]" />
               </div>
             </div>
           </div>

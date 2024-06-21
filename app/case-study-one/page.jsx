@@ -30,7 +30,7 @@ const page = () => {
             <span className="font-semibold">Infeon Technology</span>
           </p>
 
-          <div className="space-y-[70px]">
+          <div className="">
             <div className="flex flex-row-reverse items-center space-x-5 ">
               <div className="w-[50%]">
                 <img src="/Images/case1Vector1.png" alt="vector1" />
@@ -51,7 +51,7 @@ const page = () => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-5 ">
+            <div className="flex items-center space-x-5  mt-[50px]">
               <div className="w-[50%]">
                 <img src="/Images/case1Vector2.png" alt="Vector2" />
               </div>
@@ -81,7 +81,7 @@ const page = () => {
               </div>
             </div>
 
-            <div className="flex flex-row-reverse items-center space-x-5 ">
+            <div className="flex flex-row-reverse items-center space-x-5 mt-[100px]">
               <div className="w-[50%]">
                 <img src="/Images/case1Vector3.png" alt="Vector3" />
               </div>
@@ -115,7 +115,7 @@ const page = () => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-5 ">
+            <div className="flex items-center space-x-5 mt-[160px]">
               <div className="w-[50%]">
                 <img src="/Images/case1Vector4.png" alt="Vector4" />
               </div>

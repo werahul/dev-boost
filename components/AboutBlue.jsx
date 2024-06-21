@@ -47,15 +47,37 @@ const AboutBlue = () => {
   //       setEfficiencyText(efficiencyTexts[index]);
   //       setPercentageText(percentageTexts[index]);
   //       setAnimationClass("expand");
-  //     }, 1000); 
-  //   }, 4000); 
+  //     }, 1000);
+  //   }, 4000);
 
   //   return () => clearInterval(interval);
   // }, []);
 
+  useEffect(() => {
+    const linkedinIcons = document.querySelectorAll(".linkedin-icon");
+
+    linkedinIcons.forEach((icon) => {
+      const handleMouseOver = () => {
+        icon.src = "/Images/linkedinIcon.svg";
+      };
+
+      const handleMouseOut = () => {
+        icon.src = "/Images/linkedinIconWhite.png";
+      };
+
+      icon.addEventListener("mouseover", handleMouseOver);
+      icon.addEventListener("mouseout", handleMouseOut);
+
+      // Cleanup event listeners on component unmount
+      return () => {
+        icon.removeEventListener("mouseover", handleMouseOver);
+        icon.removeEventListener("mouseout", handleMouseOut);
+      };
+    });
+  }, []);
   return (
     <div className="">
-      <div className="aboutBg w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
+      <div className="pricingBg w-full h-[641px] rounded-b-[80px] px-20 pt-[300px] z-10 ">
         <p className="tracking-wide font-flyHead text-[64px] leading-[74px] text-[#ffffff] text-center">
           TAKING ENGINEERING INTELLIGENCE <br />
           TO THE NEXT LEVEL
@@ -97,13 +119,19 @@ const AboutBlue = () => {
           <AboutSwitch />
         </div>
         <div className="py-[156px] px-20">
-          <p className="font-inter text-[48px] text-[#000000] text-center">
+          <p className="font-inter text-[48px] text-[#000049] text-center">
             Our <span className="font-semibold"> Founders </span>
           </p>
 
           <div className="grid grid-cols-2 gap-x-6 mt-10">
             <div className="w-full  border-2 border-[#8F2758] bg-[#8F2758] rounded-[8px] flex ">
-              <div className="bg-gray-300 w-[263px]"></div>
+              <div className="bg-gray-300 w-[263px]">
+                <img
+                  src="/Images/tushar.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className=" w-[70%] p-7">
                 <p className=" font-inter font-semibold text-[24px] text-white ">
                   Tushar Doshi
@@ -116,9 +144,9 @@ const AboutBlue = () => {
                   target="_blank"
                 >
                   <img
-                    src="/Images/linkedinIcon.png"
+                    src="/Images/linkedinIconWhite.png"
                     alt="LinkedInIcon"
-                    className="my-4"
+                    className="linkedin-icon my-4"
                   />
                 </a>
 
@@ -131,7 +159,13 @@ const AboutBlue = () => {
               </div>
             </div>
             <div className="w-full  border-2 border-[#004C3F] bg-[#004C3F] rounded-[8px] flex ">
-              <div className="bg-gray-300 w-[263px]"></div>
+              <div className="bg-gray-300 w-[263px]">
+                <img
+                  src="/Images/aninda.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className=" w-[70%] p-7">
                 <p className=" font-inter font-semibold text-[24px] text-white ">
                   Aninda
@@ -144,9 +178,9 @@ const AboutBlue = () => {
                   target="_blank"
                 >
                   <img
-                    src="/Images/linkedinIcon.png"
+                    src="/Images/linkedinIconWhite.png"
                     alt="LinkedInIcon"
-                    className="my-4"
+                    className="linkedin-icon my-4"
                   />
                 </a>
 
